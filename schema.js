@@ -4,7 +4,6 @@ const {
   GraphQLObjectType,
   GraphQLInt,
   GraphQLString,
-  GraphQLBoolean,
   GraphQLSchema,
   GraphQLList,
 } = require("graphql");
@@ -40,9 +39,9 @@ const LaunchType = new GraphQLObjectType({
     launch_date_local: {
       type: GraphQLString,
     },
-    launch_success: {
-      type: GraphQLBoolean,
-    },
+    // launch_success: {
+    //   type: GraphQLBoolean,
+    // },
     rocket: {
       type: RocketType,
     },
