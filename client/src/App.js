@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import { InMemoryCache, ApolloClient, createHttpLink } from "@apollo/client";
 import { ApolloProvider } from "react-apollo";
 import Launches from "./components/Launches";
+import Launch from "./components/Launch";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:5000/graphql",
@@ -24,14 +26,19 @@ console.log("client", client);
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="container">
-        <img
-          src={logo}
-          alt="spacex logo"
-          style={{ width: 300, display: "block", margin: "auto" }}
-        />
-        <Launches />
-      </div>
+      <Router>
+        <div className="container">
+          <img
+            src={logo}
+            alt="spacex logo"
+            style={{ width: 300, display: "block", margin: "auto" }}
+          />
+          <Routes>
+            <Route path="/" element={<Launches />} />
+            <Route path="/launch/:flight_number" element={<Launch />} />
+          </Routes>
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }
