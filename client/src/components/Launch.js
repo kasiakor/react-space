@@ -68,6 +68,10 @@ const Launch = () => {
                   </span>
                 </li>
               </ul>
+              <hr />
+              <Link to="/" className="btn btn-secondary">
+                Back
+              </Link>
             </>
           );
         }}
